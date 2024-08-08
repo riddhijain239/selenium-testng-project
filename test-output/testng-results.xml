@@ -1,25 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-08T00:13:09 IST" name="Default suite" finished-at="2024-08-08T00:14:45 IST" duration-ms="95613">
+  <suite started-at="2024-08-09T00:50:19 IST" name="Default suite" finished-at="2024-08-09T00:50:36 IST" duration-ms="16317">
     <groups>
     </groups>
-    <test started-at="2024-08-08T00:13:09 IST" name="Default test" finished-at="2024-08-08T00:14:45 IST" duration-ms="95613">
-      <class name="TestNGAssignments.Assignment1">
-        <test-method is-config="true" signature="initializeDriver()[pri:0, instance:TestNGAssignments.Assignment1@c88a337]" started-at="2024-08-08T00:13:09 IST" name="initializeDriver" finished-at="2024-08-08T00:14:38 IST" duration-ms="88478" status="PASS">
+    <test started-at="2024-08-09T00:50:19 IST" name="Default test" finished-at="2024-08-09T00:50:36 IST" duration-ms="16317">
+      <class name="TestNGAssignments.Assignment2DataDrivenMethod">
+        <test-method is-config="true" signature="initializeDriver()[pri:0, instance:TestNGAssignments.Assignment2DataDrivenMethod@4dbb42b7]" started-at="2024-08-09T00:50:08 IST" name="initializeDriver" finished-at="2024-08-09T00:50:19 IST" duration-ms="11741" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeDriver -->
-        <test-method signature="login()[pri:0, instance:TestNGAssignments.Assignment1@c88a337]" started-at="2024-08-08T00:14:38 IST" name="login" finished-at="2024-08-08T00:14:44 IST" duration-ms="6272" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:TestNGAssignments.Assignment2DataDrivenMethod@4dbb42b7]" started-at="2024-08-09T00:50:19 IST" name="login" data-provider="loginDataSet" finished-at="2024-08-09T00:50:25 IST" duration-ms="5848" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[test1@example.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test1@123]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method is-config="true" signature="closeWindow()[pri:0, instance:TestNGAssignments.Assignment1@c88a337]" started-at="2024-08-08T00:14:44 IST" name="closeWindow" finished-at="2024-08-08T00:14:45 IST" duration-ms="491" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:TestNGAssignments.Assignment2DataDrivenMethod@4dbb42b7]" started-at="2024-08-09T00:50:25 IST" name="login" data-provider="loginDataSet" finished-at="2024-08-09T00:50:31 IST" duration-ms="5542" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[test2@example.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test2@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:TestNGAssignments.Assignment2DataDrivenMethod@4dbb42b7]" started-at="2024-08-09T00:50:31 IST" name="login" data-provider="loginDataSet" finished-at="2024-08-09T00:50:36 IST" duration-ms="4814" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[test3@example.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test3@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="closeWindow()[pri:0, instance:TestNGAssignments.Assignment2DataDrivenMethod@4dbb42b7]" started-at="2024-08-09T00:50:36 IST" name="closeWindow" finished-at="2024-08-09T00:50:37 IST" duration-ms="335" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeWindow -->
-      </class> <!-- TestNGAssignments.Assignment1 -->
+      </class> <!-- TestNGAssignments.Assignment2DataDrivenMethod -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

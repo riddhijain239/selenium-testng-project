@@ -7,7 +7,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Assignment1 {
+public class Assignment1TestNGAnnotation {
 	/*
 	 * Assignment -1(TestNG): ➤url : https://demo.guru99.com/test/login.html ➤ Using
 	 * TestNG Annotaions to complete this assignment ➤ In Before test annotation
