@@ -44,14 +44,16 @@ public class Assignment2DataDrivenMethod {
 	@Test(dataProvider = "loginDataSet")
 	public void login(String email, String password) throws InterruptedException {
 		WebElement emailinput = chromeDriver.findElement(By.id("email"));
+		emailinput.clear();
 		emailinput.sendKeys(email);
 		WebElement passwordinput = chromeDriver.findElement(By.id("passwd"));
+		passwordinput .clear();
 		passwordinput.sendKeys(password);
 		chromeDriver.findElement(By.id("SubmitLogin")).click();
 		Thread.sleep(2000);
 		chromeDriver.navigate().back();
-		emailinput.clear();
-		passwordinput.clear();
+		Thread.sleep(2000);
+		
 	}
 
 	@AfterSuite
