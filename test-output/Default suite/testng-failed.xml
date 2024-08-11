@@ -5,7 +5,7 @@
     <classes>
       <class name="GroupsAssignments.Assignment3TestNGGroups">
         <methods>
-          <include name="openFormPage"/>
+          <include name="formCreation"/>
         </methods>
       </class> <!-- GroupsAssignments.Assignment3TestNGGroups -->
     </classes>

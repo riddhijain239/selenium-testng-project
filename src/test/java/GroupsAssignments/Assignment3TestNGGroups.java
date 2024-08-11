@@ -1,5 +1,6 @@
 package GroupsAssignments;
 
+import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -8,9 +9,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /*Assignment -3(TestNG):
@@ -24,22 +23,32 @@ import org.testng.annotations.Test;
 public class Assignment3TestNGGroups {
 
 	WebDriver chromeDriver;
-
-	@Test
-	public void openFormPage() throws InterruptedException {
+	JavascriptExecutor js;
+	
+	Assignment3TestNGGroups() {
 		chromeDriver = new ChromeDriver();
+		js = (JavascriptExecutor) chromeDriver;
 		chromeDriver.manage().window().maximize();
 		chromeDriver.get("https://demoqa.com/");
 		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-		JavascriptExecutor js = (JavascriptExecutor) chromeDriver;
-		js.executeScript("window.scrollBy(0,250)", "");
-
+	}
+		
+	@Test(groups= {"SmokeTest"})
+	public void openFormPage() {
+		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		js.executeScript("window.scrollBy(0,350)");
 		chromeDriver.findElement(By.xpath("//div[@class='category-cards']/div[2]/div")).click();
-		chromeDriver.findElement(By.xpath("//div[@class='accordion']/div/div/ul/li/span[text()='Practice Form']"))
-				.click();
-
-
+		chromeDriver.findElement(By.xpath("//div[@class='accordion']/div/div/ul/li/span[text()='Practice Form']")).click();
+		
+		
+		// String practiceForm = chromeDriver.findElement(By.xpath("//div[@id='app']/descendant::h5[1]")).getText();
+		// Assert.assertEquals(practiceForm, "Practice Form");
+	}
+	
+	@Test(groups={"RegressionTest"})
+	public void formCreation() throws InterruptedException {
+		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		
 		chromeDriver.findElement(By.id("firstName")).sendKeys("Riddhi");
 		chromeDriver.findElement(By.id("lastName")).sendKeys("Jain");
 		chromeDriver.findElement(By.id("userEmail")).sendKeys("test@example.com");
@@ -52,19 +61,26 @@ public class Assignment3TestNGGroups {
 		chromeDriver.findElement(By.xpath("//label[@for='hobbies-checkbox-3']")).click();
 
 		WebElement subjects = chromeDriver.findElement(By.id("subjectsInput"));
-
 		subjects.sendKeys("maths");
 		subjects.sendKeys(Keys.ENTER);
 
 		WebElement stateDropdown = chromeDriver.findElement(By.id("react-select-3-input"));
 		stateDropdown.sendKeys("NCR");
 		stateDropdown.sendKeys(Keys.ENTER);
-		
+
 		WebElement cityDropdown = chromeDriver.findElement(By.id("react-select-4-input"));
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		cityDropdown.sendKeys("Delhi");
 		cityDropdown.sendKeys(Keys.ENTER);
 
+		// Choose File
+	    File uploadFile = new File("src/jquery.jpeg");
+		WebElement chooseFile = chromeDriver.findElement(By.id("uploadPicture"));
+		chooseFile.sendKeys(uploadFile.getAbsolutePath());
+		js.executeScript("window.scrollBy(0,100)");
+		chromeDriver.findElement(By.id("submit")).click();
+		
+		//String thanksForm = chromeDriver.findElement(By.xpath("//div[@id='example-modal-sizes-title-lg']")).getText();
+		//Assert.assertEquals(thanksForm, "Thanks for submitting the form");
 	}
-
 }

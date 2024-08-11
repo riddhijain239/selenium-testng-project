@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [GroupsDemo]" guice-stage="DEVELOPMENT">
+<suite name="Failed suite [Groups]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="GroupTest(failed)">
     <groups>
       <run>
@@ -12,8 +12,9 @@
       <class name="GroupsAssignments.Assignment3TestNGGroups">
         <methods>
           <include name="formCreation"/>
+          <include name="openFormPage"/>
         </methods>
       </class> <!-- GroupsAssignments.Assignment3TestNGGroups -->
     </classes>
   </test> <!-- GroupTest(failed) -->
-</suite> <!-- Failed suite [GroupsDemo] -->
+</suite> <!-- Failed suite [Groups] -->
