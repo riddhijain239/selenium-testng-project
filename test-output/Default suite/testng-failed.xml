@@ -6,6 +6,8 @@
       <class name="GroupsAssignments.Assignment3TestNGGroups">
         <methods>
           <include name="formCreation"/>
+          <include name="closeBrowser"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- GroupsAssignments.Assignment3TestNGGroups -->
     </classes>

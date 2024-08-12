@@ -12,6 +12,7 @@
       <class name="GroupsAssignments.Assignment3TestNGGroups">
         <methods>
           <include name="formCreation"/>
+          <include name="openFormPage"/>
         </methods>
       </class> <!-- GroupsAssignments.Assignment3TestNGGroups -->
     </classes>

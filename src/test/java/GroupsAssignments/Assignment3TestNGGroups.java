@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 /*Assignment -3(TestNG):
@@ -25,29 +27,36 @@ public class Assignment3TestNGGroups {
 	WebDriver chromeDriver;
 	JavascriptExecutor js;
 	
-	Assignment3TestNGGroups() {
+	@BeforeClass
+	public void setUp() {
 		chromeDriver = new ChromeDriver();
 		js = (JavascriptExecutor) chromeDriver;
 		chromeDriver.manage().window().maximize();
-		chromeDriver.get("https://demoqa.com/");
-		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	}
-		
-	@Test(groups= {"SmokeTest"})
-	public void openFormPage() {
-		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-		js.executeScript("window.scrollBy(0,350)");
-		chromeDriver.findElement(By.xpath("//div[@class='category-cards']/div[2]/div")).click();
-		chromeDriver.findElement(By.xpath("//div[@class='accordion']/div/div/ul/li/span[text()='Practice Form']")).click();
-		
-		
-		// String practiceForm = chromeDriver.findElement(By.xpath("//div[@id='app']/descendant::h5[1]")).getText();
-		// Assert.assertEquals(practiceForm, "Practice Form");
 	}
 	
-	@Test(groups={"RegressionTest"})
-	public void formCreation() throws InterruptedException {
+	@AfterClass
+	public void closeBrowser() {
+		chromeDriver.quit();
+	}
+		
+	@Test(groups = "SmokeTest")
+	public void openFormPage() {
+		chromeDriver.get("https://demoqa.com/");
+		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		js.executeScript("window.scrollBy(0,350)");
+	
+		chromeDriver.findElement(By.xpath("//h5[text()='Forms']")).click();
+		chromeDriver.findElement(By.xpath("//span[text()='Practice Form']")).click();
+		
+		String practiceForm = chromeDriver.findElement(By.xpath("//div[@id='app']/descendant::h1[1]")).getText();
+		Assert.assertEquals(practiceForm, "Practice Form");
+	}
+	
+	@Test(groups = "RegressionTest", dependsOnGroups = "SmokeTest")
+	public void formCreation() {
 		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		
+		js.executeScript("window.scrollBy(0,350)");
 		
 		chromeDriver.findElement(By.id("firstName")).sendKeys("Riddhi");
 		chromeDriver.findElement(By.id("lastName")).sendKeys("Jain");
@@ -69,7 +78,7 @@ public class Assignment3TestNGGroups {
 		stateDropdown.sendKeys(Keys.ENTER);
 
 		WebElement cityDropdown = chromeDriver.findElement(By.id("react-select-4-input"));
-		Thread.sleep(1000);
+		// Thread.sleep(1000);
 		cityDropdown.sendKeys("Delhi");
 		cityDropdown.sendKeys(Keys.ENTER);
 
@@ -79,8 +88,5 @@ public class Assignment3TestNGGroups {
 		chooseFile.sendKeys(uploadFile.getAbsolutePath());
 		js.executeScript("window.scrollBy(0,100)");
 		chromeDriver.findElement(By.id("submit")).click();
-		
-		//String thanksForm = chromeDriver.findElement(By.xpath("//div[@id='example-modal-sizes-title-lg']")).getText();
-		//Assert.assertEquals(thanksForm, "Thanks for submitting the form");
 	}
 }
