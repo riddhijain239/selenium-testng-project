@@ -27,14 +27,14 @@ public class Assignment3TestNGGroups {
 	WebDriver chromeDriver;
 	JavascriptExecutor js;
 	
-	@BeforeClass
+	@BeforeClass(alwaysRun=true)
 	public void setUp() {
 		chromeDriver = new ChromeDriver();
 		js = (JavascriptExecutor) chromeDriver;
 		chromeDriver.manage().window().maximize();
 	}
 	
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeBrowser() {
 		chromeDriver.quit();
 	}
